@@ -21,7 +21,10 @@ app.get("/", (req, res) => {
   res.send("api is running");
 });
 
-const server = app.listen(process.env.PORT, console.log("server listening"));
+const server = app.listen(
+  process.env.PORT || 8000,
+  console.log("server listening")
+);
 
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
